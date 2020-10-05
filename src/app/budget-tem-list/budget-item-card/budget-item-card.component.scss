@@ -1,0 +1,62 @@
+@import '../../main-styles.scss';
+
+.root {
+    display: flex;
+    width: 100%;
+    position: relative;
+
+    .x-icon-button {
+        position: absolute;
+        height: 34px;
+        width: 34px;
+        border-radius: 50%;
+        background: $dark;
+        right: -17px;
+        top: -17px;
+    }
+
+}
+  
+.budget-item {
+    display: flex;
+    width: 100%;
+    background-color: $light-grey;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    .description {
+        display: flex;
+        flex-grow: 1;
+        font-size: 10px;
+        margin-left: 5px;
+
+        align-items: center;
+    }
+
+    .amount {
+        padding: 5px;
+        border-radius: 3px;
+
+    }
+}
+
+.expense {
+    p {
+        colour: $red;
+   }
+
+   .amount {
+       background-color: $light-red;
+   }
+}
+
+.income {
+    p {
+        colour: $green;
+   }
+
+   .amount {
+       background-color: $light-green;
+   }
+}
