@@ -2,23 +2,38 @@
     <div class="budget-items-container">
         <div class="income-column">
             <h1>Income</h1>
-            
-         <app-budget-item-card [isIncome]="true" style="margin-bottom: 20px;"></app-budget-item-card>
-         <app-budget-item-card [isIncome]="true" style="margin-bottom: 20px;" ></app-budget-item-card>
-        </div>
 
-    </div>
+            <div class="budget-items">
+            <div *ngFor="let item of budgetItems">
+                <app-budget-item-card *ngIf="item.amount >=0" 
+                [item]="item"
+                (xButtonClick)="onDeleteButtonClicked(item)"
+                style= "display: block; margin-bottom: 20px;"></app-budget-item-card>
+            </div>
+
+            </div>
+            
+          </div>
+     </div>
 
     <div class="expense-column">
         <h1>Expenses</h1>
 
-        <app-budget-item-card [isIncome]="false"style="margin-bottom: 20px;" ></app-budget-item-card>
-        <app-budget-item-card [isIncome]="false" style="margin-bottom: 20px;"></app-budget-item-card>
 
+        <div class="budget-items">
+            <div *ngFor="let item of budgetItems">
+                <app-budget-item-card *ngIf="item.amount < 0" 
+                [item]="item"
+                (xButtonClick)="onDeleteButtonClicked(item)" 
+                style="display:block; margin-bottom:20px;"></app-budget-item-card>
+            </div>
+
+             
+        </div>
+
+        
     </div>
 
 </div>
-
-
 
 </section>
