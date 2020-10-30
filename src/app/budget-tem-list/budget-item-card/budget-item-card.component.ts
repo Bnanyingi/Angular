@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { Event } from '@angular/router';
 import { BudgetItem } from 'src/shared/models/budget-item.model';
 

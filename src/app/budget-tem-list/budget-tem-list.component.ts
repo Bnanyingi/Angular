@@ -1,6 +1,6 @@
 import { newArray } from '@angular/compiler/src/util';
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog/index';
 import { BudgetItem } from 'src/shared/models/budget-item.model';
 import { EditItemModalComponent } from '../edit-item-modal/edit-item-modal.component';
 
@@ -15,8 +15,8 @@ import { EditItemModalComponent } from '../edit-item-modal/edit-item-modal.compo
 
 export class BudgettemlistComponent implements OnInit {
   @Input() budgetitems: BudgetItem[];
-  @Output() delete: EventEmitter<BudgetItem> = new EventEmitter<BudgetItem>();
-  @Output() update: EventEmitter<UpdateEvent> = new EventEmitter<UpdateEvent>();
+  @Output() delete: EventEmitter<any> = new EventEmitter();
+  @Output() update: EventEmitter<any> = new EventEmitter();
 
   constructor(public dialog: MatDialog) { }
 
@@ -33,8 +33,7 @@ export class BudgettemlistComponent implements OnInit {
   onCardClicked(item: BudgetItem) {
     //show the edit modal
     const dialogRef = this.dialog.open(EditItemModalComponent, {
-      width: '580px'
-      data: item
+      width: '580px' ,data: item
 
     })
     dialogRef.afterClosed().subscribe(result => {
